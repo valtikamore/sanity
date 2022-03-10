@@ -7,7 +7,7 @@ interface IProps {}
 export const SiteLayout: FC<IProps> = ({ children }) => {
   const styles = {
     header:
-      'flex justify-center justify-between bg-red-100 px-[100px] py-[50px]',
+      'flex justify-center justify-between bg-red-100 px-[100px] py-[10px]',
     main: 'px-[100px]',
   }
   return (

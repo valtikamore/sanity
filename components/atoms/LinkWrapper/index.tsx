@@ -3,13 +3,13 @@ import { FC } from 'react'
 
 interface IProps {
   path?: string
-  title?: string
+  className?: string
 }
 
-export const LinkWrapper: FC<IProps> = ({ children, path, title }) => {
+export const LinkWrapper: FC<IProps> = ({ children, path, className }) => {
   return (
     <Link href={path!}>
-      <>{children}</>
+      <a className={className}>{children} </a>
     </Link>
   )
 }

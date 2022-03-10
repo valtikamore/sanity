@@ -10,7 +10,7 @@ export const Header: FC<IProps> = ({ className }) => {
   return (
     <header className={className}>
       <Navigation
-        classNameNav={'flex '}
+        classNameNav={'flex items-center'}
         classNameList={'hidden items-center space-x-5 md:flex'}
       />
       <SignIn className={'flex'} />
