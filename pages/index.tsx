@@ -5,6 +5,8 @@ import { Sanity } from '../utils/sanity'
 
 const Home: NextPage = ({ posts }: any) => <HomeContainer posts={posts} />
 
+const sanity = new Sanity()
+
 export const getServerSideProps = async () => {
   const query = `*[_type == "post"] {
   _id,
@@ -19,8 +21,8 @@ export const getServerSideProps = async () => {
   }
     `
   // const posts = await sanityClient.fetch(query)
-  const sanity = new Sanity(query)
-  const posts = await sanity.fetchService()
+
+  const posts = await sanity.fetchService(query)
 
   return {
     props: {

@@ -1,11 +1,8 @@
 import { sanityClient } from '../../sanity'
 
 export class Sanity {
-  query: string
-  constructor(query: string) {
-    this.query = query
-  }
-  fetchService() {
-    return sanityClient.fetch(this.query)
+  constructor() {}
+  fetchService(query: string, params?: any) {
+    return sanityClient.fetch(query, params)
   }
 }

@@ -1,11 +1,11 @@
 import { FC } from 'react'
 import { SiteLayout } from '../../layouts/SiteLayout'
-import { Post } from '../../models/Entries'
+import { MPost } from '../../models/Entries'
 import { urlFor } from '../../sanity'
 import { LinkWrapper } from '../../components'
 
 interface IProps {
-  posts: Post[]
+  posts: MPost[]
 }
 
 export const HomeContainer: FC<IProps> = ({ posts }) => {
@@ -15,16 +15,18 @@ export const HomeContainer: FC<IProps> = ({ posts }) => {
         <article>
           {posts?.map((i) => (
             <>
-              <h4>{i.author.name}</h4>
+              <h4>{i.author?.name}</h4>
               <LinkWrapper path={`post/${i.slug.current}`} className={'block'}>
                 <div className={'group overflow-hidden'}>
-                  <img
-                    src={urlFor(i.mainImage).url()!}
-                    alt=""
-                    className={
-                      'transition-transform duration-200 ease-in-out group-hover:scale-105'
-                    }
-                  />
+                  {i.mainImage && (
+                    <img
+                      src={urlFor(i?.mainImage)?.url()!}
+                      alt=""
+                      className={
+                        'transition-transform duration-200 ease-in-out group-hover:scale-105'
+                      }
+                    />
+                  )}
                 </div>
               </LinkWrapper>
             </>
